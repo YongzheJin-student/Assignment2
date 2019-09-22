@@ -13,7 +13,7 @@ let should = chai.should();
 
 chai.use(chaiHttp);
 describe('Groups', () => {
-    // Create Groups test
+    // Test for creating group
       describe('/POST Create Group', () => {
         it('it should not POST a Group without title field', (done) => {
         let group = {
@@ -36,7 +36,7 @@ describe('Groups', () => {
   });
 });
 describe('Channels', () => {
-    // Create Channels test
+    // Create Channels test (Not working)
       describe('/POST Create Group', () => {
         it('it should not POST a Group without name field', (done) => {
         let channel = {
@@ -65,7 +65,7 @@ describe('Users', () => {
         });
     });
 
-    // Create user test
+    // the test for crate users
       describe('/POST Create User', () => {
         it('it should not POST a User without email field', (done) => {
         let user = {
@@ -129,7 +129,4 @@ describe('Users', () => {
 
 });
 
-/*
-No Message testing due to messages only being created within the sockets.
-
-*/
+//delete whole unittest
