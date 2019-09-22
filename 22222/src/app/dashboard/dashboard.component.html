@@ -1,0 +1,93 @@
+<div class="slack">
+  <nav class="teams">
+    <ul class="teams__list" >
+      <li class="teams__itemNew">
+        <button *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" class="teams__New" (click)="newGroupModal()">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>
+      </li>
+      <li class="teams__item" *ngFor="let group of Groups; let i = index">
+        <button class="teams__button unselectable" [routerLink]="['channels',group._id,group._activeChannel]" routerLinkActive="teams__button--active" (click)="selectGroupChannel(group._id,group._activeChannel)" (contextmenu)="rightClick()" [matTooltip]="group._name" matTooltipPosition="after">
+          {{ groupAcronym(group._name) }}
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <div class="sidebar">
+    <button class="team-menu" [matMenuTriggerFor]="mainMenu">
+      <div class="team-menu__info">
+        <ng-container *ngIf="Groups && Groups.length > 0; else no_group">
+          <ng-container  *ngFor="let group of Groups">
+            <ng-container *ngIf="group._id == selectedGroup">
+              <h1 class="team-menu__name" >{{ group._name }}</h1>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <ng-template #no_group><h1 class="team-menu__name">No Groups Yet</h1></ng-template>
+        <div class="team-menu__status">
+          <img class="chatImg"src="data:image/jpg;base64,{{userDetails._profileImage}}"/>
+          <span class="team-menu__username">{{userDetails._username}}</span>
+        </div>
+      </div>
+    </button>
+    <div class="channels">
+      <h2 class="channels__heading" *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" ><button  mat-button (click)="inviteToGroupChannel('Group',selectedGroup)">Invite to Group  <mat-icon>add_circle_outline</mat-icon></button></h2>
+      <h2 class="channels__heading">
+        <span>Channels <span class="channels__number"></span>
+        </span>
+        <button *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" class="channels__add" (click)="newChannelModal()"><mat-icon>add_circle_outline</mat-icon></button>
+      </h2>
+      <ul class="channels__list"  *ngFor="let group of Groups">
+        <ng-container *ngFor="let channel of group._channels">
+          <li class="channels__item" *ngIf="channel._groupID == selectedGroup">
+            <button class="channels__button" [routerLink]="['channels',selectedGroup,channel._id]" routerLinkActive="channels__button--active" (click)="selectedChannel = group._activeChannel = channel._id">
+              <span>{{channel._name}}</span>
+              <button *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" mat-icon-button class="invite" matTooltip="Create Invite" matTooltipPosition="above" (click)="inviteToGroupChannel('Channel',channel?._id)"><mat-icon style="font-size:20px;">person_add</mat-icon></button>
+            </button>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main">
+     <header class="main__header">
+       <ng-container  *ngFor="let group of Groups">
+         <ng-container *ngIf="group._channels.length > 0; else no_channel">
+           <ng-container *ngFor="let channel of group._channels">
+            <ng-container *ngIf="channel._id == selectedChannel">
+              <h1 class="main__h1" >{{channel._name}}</h1>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <ng-template #no_channel><h1 class="main__h1">No Channels Yet</h1></ng-template>
+      </ng-container>
+    <button *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" class="ion-android-close" [matMenuTriggerFor]="channelMenu"><mat-icon>settings</mat-icon></button>
+    </header>
+    <div class="main__content">
+      <div class="main__container">
+      	<router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+
+  <mat-menu #mainMenu="matMenu">
+    <button *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" mat-menu-item (click)="newUserModal()">Create User</button>
+    <button *ngIf="userDetails._role == 'Super'" mat-menu-item (click)="deleteUser()">Delete User</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+
+  <mat-menu #channelMenu="matMenu">
+    <button mat-menu-item *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" (click)="deleteGroup(selectedGroup)">Delete Entire Group</button>
+    <button mat-menu-item *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" (click)="removeChannel(selectedChannel,selectedGroup)">Delete Current Channel</button>
+    <button mat-menu-item *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" [matMenuTriggerFor]="removeUser">Remove From:</button>
+  </mat-menu>
+
+  <mat-menu #removeUser="matMenu">
+    <button mat-menu-item *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" (click)="removeFromGroupchannel('Group',selectedGroup)">Group</button>
+    <button mat-menu-item *ngIf="userDetails._role == 'Super' || userDetails._role == 'Group'" (click)="removeFromGroupchannel('Channel',selectedChannel)">Channel</button>
+  </mat-menu>
+
+
+</div>
