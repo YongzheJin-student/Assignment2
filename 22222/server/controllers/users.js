@@ -13,7 +13,7 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
       if (!findData) {
         return ({ statusCode: "Error", msg: 'User not found.' })
       }
-
+//error handing 
       if (data.password == findData._password) {
         const JWTToken = jwt.sign({
             email: data.email,
@@ -77,10 +77,7 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
       });
     },
 
-    /*
-    This function takes in a userID and ChannelID,
-    it will remove the given userID from the channel
-    */
+//Channel function (have not been achieved)
     removeUserFromChannel: async function(userID, channelID) {
       return new Promise(function(resolve, reject) {
         models.user.findByIdAndUpdate(userID, { $pop: { '_inChannel': channelID } }, function(error, number, raw) {
@@ -170,9 +167,9 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
       });
     },
 
-    /*
-     * Create New Users
-     */
+ 
+     // Create New Users
+
     createUser: async function(data) {
       var uploadDIR = '/server/userContent/uploads'
       console.log(data)
@@ -198,9 +195,8 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
 
     },
 
-    /*
-     * Delete User by Id
-     */
+    //Delete User by their user ID
+
     deleteUser: async function(id) {
       return new Promise(function(resolve, reject) {
         models.users.findByIdAndRemove(id, function(error) {
@@ -215,10 +211,7 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
 
 
 
-    /*
-     * Drop tables
-     *
-     */
+//Delete the whole table in achieving the drop function
     drop: function(callback) {
       models.users.remove({}, function(error) {
         if (callback) {
