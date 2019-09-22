@@ -1,11 +1,11 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-var cors = require('cors')
+var cors = require('cors')//for serve connection
 var chalk = require('chalk');
 var mongoose = require('mongoose');
 var logger = require('winston');
 var jwt = require("jsonwebtoken");
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');//for image show
 var multer = require('multer'); // for the file upload
 
 var app = express()
@@ -27,7 +27,7 @@ const fs = require('fs');
 var port = process.env.PORT || 8080;
 var activeData = require(__dirname + '/server/Utils/database.js');
 
-
+//connect to the database
 
 
 // Database connection: (Change this to what your database URL is!)
@@ -63,7 +63,7 @@ var server = app.listen(port, function () {
    var port = server.address().port
    console.log("Listening on %s", port)
 })
-
+//connection to the server
 var io = require('socket.io').listen(server);
 
 require(__dirname + '/server/Utils/sockets')(models, controller, app, io)
