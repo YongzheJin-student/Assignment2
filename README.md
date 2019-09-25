@@ -34,6 +34,7 @@ Parameter<br>
 <li>public currentUser ---- It is the flag used to create the users;
 	<ol>getCurrentUser():</ol>
 </li>
+<br>
 All of the purpose can easiliy judge by the name of the funciton in this way. I can easiliy to do the debug<br>
 This means i won't be lost when there are a lot of different functions.
 Service:<br>
