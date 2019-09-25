@@ -63,7 +63,7 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
       });
     },
 
-    // Remove user from Channel
+    // Remove user from Channel and notice check
     addUsertoChannel: async function(userID, groupID, channelID) {
       return new Promise(function(resolve, reject) {
         models.user.findByIdAndUpdate(userID, { $push: { '_inChannel': channelID } }, function(error, number, raw) {
