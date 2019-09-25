@@ -50,7 +50,7 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
       });
     },
 
-    // Remove user from Group and alert
+    // Remove user from Group and alert Console .log()
     removeUserfromGroup: async function(userID, groupID) {
       return new Promise(function(resolve, reject) {
         models.user.findByIdAndUpdate(userID, { $pop: { '_inGroup': groupID } }, function(error, number, raw) {
