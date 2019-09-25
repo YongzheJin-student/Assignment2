@@ -14,22 +14,26 @@ In this way i can manage them properly and easiliy to find the errors.After that
 They can be divided in to two parts. The first part is the login part. Then the room componeny and the dashboard are the second<br>
 parts. They combined the user interface for the users to send message and communicate with others<br>
 Parameter<br>
-<li>dataObserver: Observer < any > ;
-<li>messageObserver: Observer < any > ;
+<li>dataObserver: Observer < any > ;</li>
+<li>messageObserver: Observer < any > ;</li>
 <li>public userDetails;
-	<ol>loginEmit()
+	<ol>loginEmit()</ol>
+</li>
 <li>public Groups = [] ---It userd to manage the groups;
-	<ol>public joinRoom(room, user)
-	<ol>leaveRoom(room, user)
-<li>public Channels = [] ---- It used to manage the channels;
+	<ol>public joinRoom(room, user)</ol>
+	<ol>leaveRoom(room, user)</ol>
+</li>
+<li>public Channels = [] ---- It used to manage the channels;</li>
 <li>public Users = [] ---- It used to manage all users;
-	<ol>sendMessage(room, msg)
-	<ol>sendMessagewithImage(room, msg, Img)
-	<ol>getMessages(): Observable < any >
-<li>public selectedGroup = 0 --- It used to connect the users and the groups;
-<li>public selectedChannel = 0 ---- It used to connect the users and the channel;
-<li>public currentUser ---- It is the flag used to create the users;<br>
-	<ol>getCurrentUser():
+	<ol>sendMessage(room, msg)</ol>
+	<ol>sendMessagewithImage(room, msg, Img)</ol>
+	<ol>getMessages(): Observable < any ></ol>
+</li>
+<li>public selectedGroup = 0 --- It used to connect the users and the groups;</li>
+<li>public selectedChannel = 0 ---- It used to connect the users and the channel;</li>
+<li>public currentUser ---- It is the flag used to create the users;
+	<ol>getCurrentUser():</ol>
+</li>
 
 Service:<br>
 Because this Asssignment is much complex due to the involved of the mogoDB so i divide the function into different<br>
