@@ -13,13 +13,21 @@ For the routers i have divide them in to differents files and required all of th
 In this way i can manage them properly and easiliy to find the errors.After that i have create many component<br>
 They can be divided in to two parts. The first part is the login part. Then the room componeny and the dashboard are the second<br>
 parts. They combined the user interface for the users to send message and communicate with others<br>
-Component
-<li>
- <ul>private socket;
- <ul> dataObserver: Observer < any > ;
-  <ul>messageObserver: Observer < any > ;
-  <ul>public userDetails;
- <ul> public Groups = [];
-  <ul>public Channels = [];
-  <ul>public Users = [];
+Parameter<br>
+<li>dataObserver: Observer < any > ;
+<li>messageObserver: Observer < any > ;
+<li>public userDetails;
+<li>public Groups = [] ---It userd to manage the groups;
+<li>public Channels = [] ---- It used to manage the channels;
+<li>public Users = [] ---- It used to manage all users;
+<li>public selectedGroup = 0 --- It used to connect the users and the groups;
+<li>public selectedChannel = 0 ---- It used to connect the users and the channel;
+<li>public currentUser ---- It is the flag used to create the users;<br>
 
+Service:<br>
+Because this Asssignment is much complex due to the involved of the mogoDB so i divide the function into different<br>
+files. So the funcitons have been saved inthe socket service or the model js files. In this way i can manage them properly<br>
+
+Routes:
+Because there are many funciton involved so i have used many routes. Actually, i used one route for one function<br>
+In this way, i can manage the data properly.
