@@ -51,6 +51,9 @@ Image:<br>
 For the Image i have tranform the image into data and store them into the mongoDB. Finally i can use the data when i want<br>
 This is the different between angular designed software and other software design, that i have recogonized<br>
 
+Because three types of users have got many same functions so i store the function in the different files can <br>
+help me to easiliy navigate between different functions.
+
 
 
 
