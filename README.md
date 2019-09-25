@@ -34,11 +34,23 @@ Parameter<br>
 <li>public currentUser ---- It is the flag used to create the users;
 	<ol>getCurrentUser():</ol>
 </li>
-
+All of the purpose can easiliy judge by the name of the funciton in this way. I can easiliy to do the debug<br>
+This means i won't be lost when there are a lot of different functions.
 Service:<br>
 Because this Asssignment is much complex due to the involved of the mogoDB so i divide the function into different<br>
 files. So the funcitons have been saved inthe socket service or the model js files. In this way i can manage them properly<br>
 
 Routes:<br>
 Because there are many funciton involved so i have used many routes. Actually, i used one route for one function<br>
-In this way, i can manage the data properly.
+In this way, i can manage the data properly. Then all of the data have been stored in the mongoDB i have write a function<br>
+To utilize the specific data that i need to use. After that, i can utilize the funciton to pass the data into service and <br>
+do some funciton that i need then to perform the judgment function to resend the data into the angular component<br>
+Then i can achieve the function in the  HTML file<br>
+
+Image:<br>
+For the Image i have tranform the image into data and store them into the mongoDB. Finally i can use the data when i want<br>
+This is the different between angular designed software and other software design, that i have recogonized<br>
+
+
+
+
