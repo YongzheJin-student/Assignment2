@@ -54,6 +54,12 @@ This is the different between angular designed software and other software desig
 Because three types of users have got many same functions so i store the function in the different files can <br>
 help me to easiliy navigate between different functions.
 
+<li>Main Parameter to connect (Primary Key)
+<ol>userID</ol> 
+<ol>groupID</ol> 
+<ol>channelID</ol>
+</li>
+
 
 
 
