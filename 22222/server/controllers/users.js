@@ -168,7 +168,7 @@ module.exports = function(models, logger, jwt, bcrypt, multer) {
     },
 
  
-     // Create New Users
+     // Create New Users 2:(Erroring handling improve)
 
     createUser: async function(data) {
       var uploadDIR = '/server/userContent/uploads'
