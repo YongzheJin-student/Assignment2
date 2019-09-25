@@ -17,17 +17,24 @@ Parameter<br>
 <li>dataObserver: Observer < any > ;
 <li>messageObserver: Observer < any > ;
 <li>public userDetails;
+	<ol>loginEmit()
 <li>public Groups = [] ---It userd to manage the groups;
+	<ol>public joinRoom(room, user)
+	<ol>leaveRoom(room, user)
 <li>public Channels = [] ---- It used to manage the channels;
 <li>public Users = [] ---- It used to manage all users;
+	<ol>sendMessage(room, msg)
+	<ol>sendMessagewithImage(room, msg, Img)
+	<ol>getMessages(): Observable < any >
 <li>public selectedGroup = 0 --- It used to connect the users and the groups;
 <li>public selectedChannel = 0 ---- It used to connect the users and the channel;
 <li>public currentUser ---- It is the flag used to create the users;<br>
+	<ol>getCurrentUser():
 
 Service:<br>
 Because this Asssignment is much complex due to the involved of the mogoDB so i divide the function into different<br>
 files. So the funcitons have been saved inthe socket service or the model js files. In this way i can manage them properly<br>
 
-Routes:
+Routes:<br>
 Because there are many funciton involved so i have used many routes. Actually, i used one route for one function<br>
 In this way, i can manage the data properly.
